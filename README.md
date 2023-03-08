@@ -5,6 +5,23 @@ There are three application with following functions
 2. Second application will download from Azure and acts as producer for Kafka
 3. Third application will download from Kafka and upload to mongoDB
 
+##EndToEndFlow
+
+                                                                               +---------------+               
++-----------------+                     +---------------+                       |               |               
+|                 |                     |               |-----------------------|               |               
+|     toAzure     |                     |   fromAzure   |       Kafka           |     toMongo   |-              
+|                 |                     |               |-----------------------|               | \-            
+|                 |                     |               |                       +---------------+   \           
++-----------------+                     +---------------+                                            \-         
+          -\                               -/                                                          \-       
+            -\                          --/                                                              \      
+              -\                      -/                                                             +---------+
+                -\    +-------+    --/                                                               |         |
+                  -\  |       |  -/                                                                  | MongoDb |
+                    - |AzureDB|-/                                                                    +---------+
+                      |       |                                                                                 
+                      +-------+                                                                              
 
 ## Refeences:
 1. https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-go?tabs=roles-azure-portal
